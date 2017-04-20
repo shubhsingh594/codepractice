@@ -23,9 +23,9 @@ using namespace std;
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
 #define sz size()
-#define rep(i,m) for(int i=0;i<(int)(m);i++)
-#define rep2(i,n,m) for(int i=n;i<(int)(m);i++)
-#define For(it,c) for(__typeof(c.begin()) it=c.begin();it!=c.end();++it)
+#define rep(i,m) for(int i=0; i<(int)(m); i++)
+#define rep2(i,n,m) for(int i=n; i<(int)(m); i++)
+#define For(it,c) for(__typeof(c.begin()) it=c.begin(); it!=c.end(); ++it)
 #define mem(a,b) memset(a,b,sizeof(a))
 #define mp make_pair
 #define ff first
@@ -39,6 +39,7 @@ using namespace std;
 #define normalize(v) ((v)/length(v))
 #define rotate(p,about,theta) ((p-about)*exp(point(0,theta))+about)
 #define pointEqu(a,b) (comp(a.X,b.X)==0 && comp(a.Y,b.Y)==0)
+#define mod 1000000007
 
 typedef stringstream ss;
 typedef pair<int, int> pii;
@@ -59,7 +60,7 @@ const double PI = 2 * acos(0);
 const double eps = 1e-9;
 int main()
 {
-  cout<<"template\n";
-  return 0;
+        cout<<"template\n";
+        return 0;
 
 }//main

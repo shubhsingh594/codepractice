@@ -1,4 +1,4 @@
-// template
+// https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/sonya-and-the-graph-with-disappearing-edges-icpc-5/
 #include <string.h>
 #include <map>
 #include <deque>

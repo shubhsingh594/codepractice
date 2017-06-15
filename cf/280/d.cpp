@@ -58,10 +58,45 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
+vector<pair<double,string> >store;
 
 int main()
 {
-        cout<<"template\n";
+        int n,x,y;
+        scanf("%d %d %d",&n,&x,&y);
+        double temp=0; int i;
+        for(i=1; i<=x; i++)
+        {
+                temp = (i*1.0)/(x*1.0);
+                store.pb(mp(temp,"Vanya"));
+        }
+        for(i=1; i<=y; i++)
+        {
+                temp = (i*1.0)/(y*1.0);
+                store.pb(mp(temp,"Vova"));
+        }
+        int a;
+        sort(store.begin(),store.end());
+        for(i=0; i<n; i++)
+        {
+                scanf("%d",&a);
+                a--;
+                a=a%store.size();
+                if (a>0)
+                {
+                        if ((store[a].ff==store[a+1].ff)||(store[a].ff==store[a-1].ff))
+                                printf("Both\n");
+                        else
+                                printf("%s\n",store[a].ss.c_str());
+                }
+                else
+                {
+                        if (store[a].ff==store[a+1].ff)
+                                printf("Both\n");
+                        else
+                                printf("%s\n",store[a].ss.c_str());
+                }
+        }
         return 0;
 
 }//main

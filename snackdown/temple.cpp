@@ -59,9 +59,64 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+long long l[2000000];
+ll r[2000000];
+ll arr[2000000];
+
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t; int n;
+        int i;
+        ll sum=0;
+        for(t=0; t<test; t++)
+        {
+                cin>>n;
+                sum=0;
+                memset(l,0,sizeof(l));
+                memset(r,0,sizeof(r));
+                for(i=1; i<=n; i++)
+                {
+                        cin>>arr[i];
+                        sum=sum+arr[i];
+                }
+                ll c=0;
+                for(i=1; i<=n; i++)
+                {
+                        if (arr[i]>=c+1)
+                        {
+                                l[i]=c+1;
+                                c++;
+                        }
+                        else
+                        {
+                                l[i]=arr[i];
+                                c=l[i];
+                        }
+
+                }
+
+                c=0;
+                for(i=n; i>=1; i--)
+                {
+                        if (arr[i]>=c+1)
+                        {
+                                r[i]=c+1;
+                                c++;
+                        }
+                        else
+                        {
+                                r[i]=arr[i];
+                                c=r[i];
+                        }
+                }
+                ll m=0;
+                for(i=1; i<=n; i++)
+                {
+                        m=max(m,min(l[i],r[i]));
+                }
+                cout<<sum-m*m<<"\n";
+        }
+
         return 0;
 
 }//main

@@ -61,7 +61,17 @@ const double eps = 1e-9;
 
 int main()
 {
-        cout<<"template\n";
+        int test; int t;
+        cin>>test;
+        string plate[2];
+        for(t=0; t<test; t++)
+        {
+                int n;;
+                cin>>n;
+                cin>>plate[0];
+                cin>>plate[1];
+        }
+
         return 0;
 
 }//main

@@ -59,9 +59,55 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int arr[200000];
+int dp[600][600];
+int solve(int i,int j)
+{
+
+        if (j<i)
+                return 0;
+
+        if (dp[i][j]!=-1)
+                return dp[i][j];
+        if (i==j)
+        {
+                dp[i][j]=1;
+                return dp[i][j];
+        }
+        else
+        {
+                dp[i][j]=solve(i+1,j)+1;
+                //  dp[i][j]=min(dp[i][j],solve(i,j-1)+1);
+                int t; int temp1,temp2;
+                temp1=0; temp2=0;
+                for(t=i+1; t<=j; t++)
+                {
+                        if (arr[i]==arr[t])
+                        {
+                                dp[i][j]=min(dp[i][j],solve(i+1,t-1)+solve(t+1,j));
+                        }
+                }
+                return dp[i][j];
+        }
+}
 int main()
 {
-        cout<<"template\n";
+        int n;
+        cin>>n; int i; int j;
+        for(i=0; i<n; i++)
+        {
+                cin>>arr[i];
+        }
+        for(i=0; i<n; i++)
+        {
+                for(j=0; j<n; j++)
+                {
+                        dp[i][j]=-1;
+                }
+        }
+        solve(0,n-1);
+        cout<<dp[0][n-1]<<"\n";
+
         return 0;
 
 }//main

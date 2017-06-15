@@ -61,7 +61,22 @@ const double eps = 1e-9;
 
 int main()
 {
-        cout<<"template\n";
+        int l,r;
+        cin>>l>>r;
+        if (l==r)
+        {
+                cout<<l<<"\n";
+                return 0;
+        }
+        int m1 = (r-(r%2))/2 - (l-(l%2))/2 +1;
+        int m2 = (r-(r%3))/3 - (l-(l%3))/3 +1;
+        if (m1>m2)
+        {
+                cout<<"2\n";
+        }
+        else
+                cout<<"3\n";
+
         return 0;
 
 }//main

@@ -61,7 +61,23 @@ const double eps = 1e-9;
 
 int main()
 {
-        cout<<"template\n";
+
+        int n;
+        cin>>n;
+        int count1=0;
+        int val=0;
+        int i=1;
+        while(n>0)
+        {
+                val=val+i;
+                if (n-val>=0)
+                {
+                        count1++;
+                }
+                n=n-val;
+                i++;
+        }
+        cout<<count1<<"\n";
         return 0;
 
 }//main

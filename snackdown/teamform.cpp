@@ -61,7 +61,20 @@ const double eps = 1e-9;
 
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t; int n,m; int a,b; int i;
+        for(t=0; t<test; t++)
+        {
+                cin>>n>>m;
+                for(i=0; i<m; i++)
+                {
+                        cin>>a>>b;
+                }
+                if ((n-2*m)%2==0)
+                        cout<<"yes\n";
+                else
+                        cout<<"no\n";
+        }
+
         return 0;
 
 }//main

@@ -58,10 +58,38 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+int mark[200000];
+int arr[200000];
 int main()
 {
-        cout<<"template\n";
+        int i,n;
+        int test; cin>>test; int t;
+        for(t=0; t<test; t++)
+        {
+                memset(mark,0,sizeof(mark));
+                cin>>n;
+                for(i=0; i<n; i++)
+                {
+                        cin>>arr[i];
+                }
+                for(i=0; i<n; i++)
+                {
+                        mark[1]++;
+                        mark[arr[i]+1]--;
+                }
+                for(i=1; i<=n; i++)
+                {
+                        mark[i]=mark[i]+mark[i-1];
+                }
+                int result=0;
+                for(i=1; i<=n; i++)
+                {
+                        if (mark[i]==0)
+                                result++;
+                }
+                cout<<result<<"\n";
+        }
+
         return 0;
 
 }//main

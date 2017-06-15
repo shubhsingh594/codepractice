@@ -58,10 +58,22 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t;
+        int n,m,k; int tmax;
+        for(t=0; t<test; t++)
+        {
+                cin>>n>>m>>k;
+                tmax=max(n,m);
+                tmax=tmax-min(n,m);
+                if (k<=tmax)
+                {
+                        cout<<tmax-k<<"\n";
+                }
+                else
+                        cout<<"0\n";
+        }
         return 0;
 
 }//main

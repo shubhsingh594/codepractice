@@ -58,10 +58,30 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+vector<int>store[300];
 int main()
 {
-        cout<<"template\n";
+        int i,j;
+        int n; int box=0;
+        cin>>n; int count1=1;
+        for(i=0; i<n; i++)
+        {
+                box=i;
+                for(j=0; j<n; j++)
+                {
+                        box=box%n;
+                        store[box].pb(count1);
+                        count1++;
+                        box++;
+                }
+        }
+        for(i=0; i<n; i++)
+        {
+                for(j=0; j<n; j++)
+                        cout<<store[i][j]<<" ";
+                cout<<"\n";
+        }
+
         return 0;
 
 }//main

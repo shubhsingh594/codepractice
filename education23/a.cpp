@@ -58,10 +58,49 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+int l=200000;
+map<pair<int,int>,int>visit;
+queue<pair<int,int> >q;
 int main()
 {
-        cout<<"template\n";
+        int x1,y1,x2,y2;
+        int x_moves[]={1,1,-1,-1};
+        int y_moves[]={1,-1,1,-1};
+        cin>>x1>>y1>>x2>>y2;
+        q.push(mp(x1,y1)); int i;
+        visit[mp(x1,y1)]=1;
+        int a,b;
+        cin>>a>>b;
+        int count1=0;
+        while(!q.empty())
+        {
+                count1++;
+                if (count1>=9000000)
+                        break;
+                pair<int,int>curr=q.front();
+                if (curr.ff==x2 && curr.ss==y2)
+                {
+                        cout<<"YES\n";
+                        return 0;
+                }
+                q.pop();
+                int tempx,tempy;
+                for(i=0; i<4; i++)
+                {
+                        tempx=curr.ff+x_moves[i]*a;
+                        tempy=curr.ss+y_moves[i]*b;
+                        if (tempx<=l && tempx>=-1*l && tempy<=l && tempy>=-1*l)
+                        {
+                                if (visit[mp(tempx,tempy)]==0)
+                                {
+                                        q.push(mp(tempx,tempy));
+                                        visit[mp(tempx,tempy)]=1;
+                                }
+                        }
+                }
+        }
+
+        cout<<"NO\n";
         return 0;
 
 }//main

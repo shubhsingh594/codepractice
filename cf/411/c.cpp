@@ -58,10 +58,14 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
 int main()
 {
-        cout<<"template\n";
+        int n;
+        cin>>n;
+        if (n%2==0)
+                cout<<n/2-1<<"\n";
+        else
+                cout<<n/2<<"\n";
         return 0;
 
 }//main

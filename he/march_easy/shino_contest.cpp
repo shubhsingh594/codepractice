@@ -1,4 +1,4 @@
-// template
+a// template
 #include <string.h>
 #include <map>
 #include <deque>
@@ -58,10 +58,25 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
+int a[5];
+int b[5];
+int dp[11][11][6][51];
+int calc(index,d1,d2,time){
 
+}
 int main()
 {
-        cout<<"template\n";
+        int i;
+        for(i=0; i<5; i++)
+        {
+                cin>>a[i];
+        }
+        for(i=0; i<5; i++)
+        {
+                cin>>b[i];
+        }
+
+
         return 0;
 
 }//main

@@ -61,7 +61,25 @@ const double eps = 1e-9;
 
 int main()
 {
-        cout<<"template\n";
-        return 0;
+        int x,y;
+        cin>>x>>y;
+        if (x>0 && y>0)
+        {
+                cout<<0<<" "<<x+y<<" "<<x+y<<" "<<0<<"\n";
+        }
+        else if (x>0 && y<0)
+        {
+                cout<<0<<" "<< -x+y<<" "<<x+abs(y)<<" "<<0<<"\n";
 
+        }
+        else if (x<0 && y<0)
+        {
+                cout<<x+y<<" "<<0<<" "<<0<<" "<<x+y<<"\n";
+        }
+        else
+        {
+                cout<<x-y<<" "<<0<<" "<<0<<" "<<abs(x)+y<<"\n";
+        }
+
+        return 0;
 }//main

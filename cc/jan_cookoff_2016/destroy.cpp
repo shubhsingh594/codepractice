@@ -58,10 +58,33 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+int arr[100000];
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t;
+        int n; int i; int s,e;
+        int result=0;
+        for(t=0; t<test; t++)
+        {
+                cin>>n;
+                for(i=0; i<n; i++)
+                {
+                        cin>>arr[i];
+                }
+                sort(arr,arr+n);
+                s=0; e=n-1; result=0;
+                while(s<e && arr[s]!=arr[e])
+                {
+                        result++;
+                        s++; e--;
+                }
+                if (s<=e)
+                {
+                        result+=(e-s+1);
+                }
+                cout<<result<<"\n";
+
+        }
         return 0;
 
 }//main

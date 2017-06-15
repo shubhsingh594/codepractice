@@ -59,9 +59,25 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int arr[200000];
 int main()
 {
-        cout<<"template\n";
+        int n;
+        cin>>n; int i;
+        int sum=0;
+        for(i=0; i<n; i++)
+        {
+                cin>>arr[i];
+                sum+=arr[i];
+        }
+        int result=0;
+        for(i=0; i<n; i++)
+        {
+                if ((sum-arr[i])%2==0)
+                        result++;
+        }
+        cout<<result<<"\n";
+
         return 0;
 
 }//main

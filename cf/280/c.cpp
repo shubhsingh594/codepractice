@@ -59,9 +59,31 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+vector<pair<ll,ll> >store;
 int main()
 {
-        cout<<"template\n";
+        ll n,r,avg;
+        cin>>n>>r>>avg; ll i;
+        ll a,b; ll require=avg*n; ll have=0;
+        for(i=0; i<n; i++)
+        {
+                cin>>a>>b;
+                have+=a;
+                store.pb(mp(b,a));
+        }
+        require=require-have;
+        sort(store.begin(),store.end());
+        ll result=0; ll t;
+        for(i=0; i<store.size(); i++)
+        {
+                //  cout<<require<<" "<<store[i].ff<<" "<<store[i].ss<<"\n";
+                if (require<=0)
+                        break;
+                t=min(require,r-store[i].ss);
+                result=result+store[i].ff*t;
+                require=require-t;
+        }
+        cout<<result<<"\n";
         return 0;
 
 }//main

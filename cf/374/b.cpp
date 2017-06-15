@@ -59,9 +59,29 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int store[100000];
 int main()
 {
-        cout<<"template\n";
+        int n,k;
+        cin>>n>>k;
+        string str; int i;
+        for(i=0; i<n; i++)
+        {
+                cin>>str;
+                store[str.size()]++;
+        }
+        string pass; cin>>pass;
+        for(i=1; i<1000; i++)
+        {
+                store[i]=store[i-1]+store[i];
+        }
+
+        int minres=store[pass.size()-1]+(store[pass.size()-1]/k)*5;
+        minres++;
+        int maxres=store[pass.size()]+((store[pass.size()]-1)/k)*5;
+        cout<<minres<<" "<<maxres<<"\n";
+
+
         return 0;
 
 }//main

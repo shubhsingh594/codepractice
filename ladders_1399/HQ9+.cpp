@@ -58,10 +58,24 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+int arr[6][6];
 int main()
 {
-        cout<<"template\n";
+        string str;
+        int i;
+        cin>>str;
+        int flag=0;
+        for(i=0; i<str.size(); i++)
+        {
+                if (str[i]=='H'|| str[i]=='Q' || str[i]=='9')
+                        flag=1;
+        }
+        if (flag==1)
+        {
+                cout<<"YES\n";
+        }
+        else
+                cout<<"NO\n";
         return 0;
 
 }//main

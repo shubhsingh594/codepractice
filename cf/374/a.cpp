@@ -58,10 +58,40 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+vector<int>store;
 int main()
 {
-        cout<<"template\n";
+        int n;
+        cin>>n; string str;
+        cin>>str; int i;
+        int count1=0; int result=0;
+        int flag=0;
+        str=str+"W";
+        for(i=0; i<str.size(); i++)
+        {
+                if (str[i]=='B')
+                {
+                        count1++;
+                        flag=1;
+                }
+                else if (str[i]=='W')
+                {
+                        if (flag==1)
+                        {
+                                store.pb(count1);
+                        }
+                        count1=0;
+                        flag=0;
+                }
+        }
+        cout<<store.size()<<"\n";
+        for(i=0; i<store.size(); i++)
+        {
+                cout<<store[i]<<" ";
+        }
+        if (store.size()!=0)
+                cout<<"\n";
+
         return 0;
 
 }//main

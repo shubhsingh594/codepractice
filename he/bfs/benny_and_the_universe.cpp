@@ -58,10 +58,53 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+vector<int>d;
+vector<int>query;
+map<int,int>mark;
+queue<int>qu;
 int main()
 {
-        cout<<"template\n";
+        int n,q; scanf("%d %d",&n,&q);
+        int i; int temp;
+        int mq=0;
+        for(i=0; i<n; i++)
+        {
+                scanf("%d",&temp);
+                d.pb(temp);
+        }
+        for(i=0; i<q; i++)
+        {
+                scanf("%d",&temp);
+                mq=max(mq,temp);
+                query.pb(temp);
+        }
+        qu.push(0);
+        int curr; int next;
+        while(!qu.empty())
+        {
+                curr=qu.front();
+                qu.pop();
+                for(i=0; i<n; i++)
+                {
+                        next=curr+d[i];
+                        if (next<=mq)
+                        {
+                                if (mark[next]==0)
+                                {
+                                        mark[next]=1;
+                                        qu.push(next);
+                                }
+                        }
+                }
+        }
+        for(i=0; i<query.size(); i++)
+        {
+                if (mark[query[i]]==1)
+                {
+                        printf("YES\n");
+                }
+                else
+                        printf("NO\n");
+        }
         return 0;
-
 }//main

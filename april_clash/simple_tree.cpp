@@ -59,9 +59,20 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int val[20000000];
+int mark[2000000];
+
 int main()
 {
-        cout<<"template\n";
+        int n,d,q;
+        cin>>n>>d>>q;
+        int i;
+        int count=0;
+        for(i=1; i<=n; i++)
+        {
+                cin>>val[i];
+        }
+
         return 0;
 
 }//main

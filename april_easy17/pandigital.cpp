@@ -59,9 +59,55 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int mark[2000000];
+int temp[10];
 int main()
 {
-        cout<<"template\n";
+        int i; int p=0; int num; int d;
+        int t;
+        int n;
+        cin>>n;
+        for(t=1; t<=1000000; t++)
+        {
+                num=t;
+                for(i=0; i<10; i++)
+                {
+                        temp[i]=0;
+                }
+                d=0;
+                while(num)
+                {
+                        d++;
+                        temp[num%10]=1;
+                        num=num/10;
+                }
+                int flag=1;
+                for(i=1; i<=d; i++)
+                {
+                        if (temp[i]==0)
+                        {
+                                flag=0;
+                                break;
+                        }
+                }
+                if (flag==1)
+                {
+                        mark[t]=1;
+                }
+        }
+        for(i=1; i<=1000000; i++)
+        {
+
+                mark[i]= mark[i]+mark[i-1];
+        }
+
+        int l,r;
+        for(i=0; i<n; i++)
+        {
+                cin>>l>>r;
+                cout<<mark[r]-mark[l-1]<<"\n";
+        }
+
         return 0;
 
 }//main

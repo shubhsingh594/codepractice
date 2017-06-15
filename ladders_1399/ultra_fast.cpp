@@ -58,10 +58,22 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+int arr[6][6];
 int main()
 {
-        cout<<"template\n";
+        string str1,str2;
+        cin>>str1>>str2;
+        int i;
+        for(i=0; i<str1.size(); i++)
+        {
+                if (str1[i]!=str2[i])
+                {
+                        cout<<"1";
+                }
+                else
+                        cout<<"0";
+        }
+        cout<<"\n";
         return 0;
 
 }//main

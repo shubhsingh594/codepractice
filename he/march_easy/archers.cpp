@@ -59,9 +59,29 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+ll gcd(ll a,ll b)
+{
+        if (b==0)
+                return a;
+        else
+                return gcd(b,a%b);
+}
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t;
+        int n; int i; ll result=1; ll temp;
+        for(t=0; t<test; t++)
+        {
+                cin>>n;
+                result=1;
+                for(i=0; i<n; i++)
+                {
+                        cin>>temp;
+                        result=(result*temp)/(gcd(max(temp,result),min(temp,result)));
+                }
+                cout<<result<<"\n";
+
+        }
         return 0;
 
 }//main

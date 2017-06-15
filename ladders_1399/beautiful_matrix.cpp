@@ -1,3 +1,4 @@
+
 // template
 #include <string.h>
 #include <map>
@@ -58,10 +59,25 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+int arr[6][6];
 int main()
 {
-        cout<<"template\n";
+        int i,j;
+        int x,y;
+        for(i=1; i<=5; i++)
+        {
+                for(j=1; j<=5; j++)
+                {
+                        cin>>arr[i][j];
+                        if (arr[i][j]==1)
+                        {
+                                x=i;
+                                y=j;
+                        }
+                }
+        }
+        int result= abs(3-x)+abs(3-y);
+        cout<<result<<"\n";
         return 0;
 
 }//main

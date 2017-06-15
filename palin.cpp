@@ -59,9 +59,73 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int parent[200000];
+int find_parent(int index)
+{
+        if (parent[index]==index)
+        {
+                return index;
+        }
+        else
+        {
+                parent[index]=find_parent(parent[index]);
+                return parent[index];
+        }
+}
+int arr[2000];
+int dp[2000][2000];
+int solve(int s,int e)
+{
+        if (s>e)
+        {
+                return 0;
+        }
+        else if (s==e)
+        {
+                dp[s][e]=1;
+                return 1;
+        }
+        else if (dp[s][e]!=-1)
+        {
+                return dp[s][e];
+        }
+        else
+        {
+                int temp=0;
+                if (find_parent(arr[s])==find_parent(arr[e]))
+                {
+                        temp=max(temp,2+solve(s+1,e-1));
+                }
+                temp=max(temp,solve(s+1,e));
+                temp=max(temp,solve(s,e-1));
+                dp[s][e]=temp;
+                return dp[s][e];
+        }
+}
 int main()
 {
-        cout<<"template\n";
-        return 0;
+        int n,k,m;
+        cin>>n>>k>>m;
+        int i;
+        int s,d;
+        memset(dp,-1,sizeof(dp));
+        for(i=0; i<=n; i++)
+        {
+                parent[i]=i;
+        }
+        for(i=0; i<k; i++)
+        {
+                cin>>s>>d;
+                parent[find_parent(d)]=find_parent(s);
+        }
 
-}//main
+        for(i=0; i<m; i++)
+        {
+                cin>>arr[i];
+        }
+
+        solve(0,m-1);
+        int j;
+        cout<<dp[0][m-1]<<"\n";
+        return 0;
+}

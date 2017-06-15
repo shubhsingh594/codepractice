@@ -58,10 +58,23 @@ typedef vector<point> polygon;
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
-
+int arr[6][6];
+map<int,int>store;
 int main()
 {
-        cout<<"template\n";
+        int i;
+        for(i=1; i<=11; i++)
+        {
+                if (i!=10)
+                {
+                        store[i]=4;
+                }
+                else
+                        store[i]=15;
+        }
+        int n;
+        cin>>n;
+        cout<<store[n-10]<<"\n";
         return 0;
 
 }//main

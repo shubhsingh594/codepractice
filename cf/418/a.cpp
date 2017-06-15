@@ -1,4 +1,4 @@
-// template
+
 #include <string.h>
 #include <map>
 #include <deque>
@@ -59,9 +59,47 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int a[200000];
+int b[200000];
 int main()
 {
-        cout<<"template\n";
+        int n,k;
+        cin>>n>>k;
+
+        int i;
+        for(i=0; i<n; i++)
+        {
+                cin>>a[i];
+        }
+        for(i=0; i<k; i++)
+        {
+                cin>>b[i];
+        }
+        sort(b,b+k);
+        int j=k-1;
+        for(i=0; i<n; i++) {
+                if (a[i]==0)
+                {
+                        a[i]=b[j];
+                        j--;
+                }
+        }
+        int flag=0;
+        for(i=1; i<n; i++)
+        {
+                if (a[i]<a[i-1])
+                {
+                        flag=1;
+                        break;
+                }
+
+        }
+        if (flag==1)
+        {
+                cout<<"Yes\n";
+        }
+        else
+                cout<<"No\n";
         return 0;
 
 }//main

@@ -59,9 +59,77 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int arr[4][4];
+
 int main()
 {
-        cout<<"template\n";
+        int i; int flag=0;
+        int j;
+        for(i=0; i<4; i++)
+        {
+                for(j=0; j<4; j++)
+                {
+                        cin>>arr[i][j];
+                }
+        }
+
+        if (arr[0][0]==1 && arr[3][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[0][1]==1 && arr[2][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[0][2]==1 && arr[1][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[1][0]==1 && arr[0][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[1][1]==1 && arr[3][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[1][2]==1 && arr[2][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[2][0]==1 && arr[1][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[2][1]==1 && arr[0][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[2][2]==1 && arr[3][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[3][0]==1 && arr[2][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[3][1]==1 && arr[1][3]==1)
+        {
+                flag=1;
+        }
+        if (arr[3][2]==1 && arr[0][3]==1)
+        {
+                flag=1;
+        }
+        if (flag==1)
+        {
+                cout<<"YES\n";
+        }
+        else
+                cout<<"NO\n";
+
+
+
         return 0;
 
 }//main

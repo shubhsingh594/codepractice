@@ -59,9 +59,52 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int mark[2000000];
+
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t;
+        string str; int i;
+        for(t=0; t<test; t++)
+        {
+                cin>>str;
+                memset(mark,0,sizeof(mark));
+                for(i=0; i<str.size(); i++)
+                {
+                        if (i>0)
+                        {
+                                if (str[i]=='s' && str[i-1]=='m' && mark[i-1]==0)
+                                {
+                                        str[i]='*';
+                                        mark[i-1]=1;
+                                }
+                                if (str[i]=='m' && str[i-1]=='s' && mark[i]==0)
+                                {
+                                        str[i-1]='*';
+                                        mark[i]=1;
+                                }
+                        }
+                }
+                int s=0; int m=0;
+                for(i=0; i<str.size(); i++)
+                {
+                        if (str[i]=='s')
+                                s++;
+                        if (str[i]=='m')
+                                m++;
+                }
+                if (s>m)
+                {
+                        cout<<"snakes\n";
+                }
+                else if (m>s)
+                {
+                        cout<<"mongooses\n";
+                }
+                else
+                        cout<<"tie\n";
+
+        }
         return 0;
 
 }//main

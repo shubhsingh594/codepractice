@@ -59,9 +59,27 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+double arr[100000];
 int main()
 {
-        cout<<"template\n";
+        int n,l;
+        cin>>n>>l;
+        int i;
+        for(i=0; i<n; i++)
+        {
+                cin>>setprecision(9)>>arr[i];
+        }
+        sort(arr,arr+n);
+        double result=arr[0];
+        double d;
+        for(i=1; i<n; i++)
+        {
+                d=arr[i]-arr[i-1];
+                result=max(result,d/2);
+        }
+        d=l-arr[n-1];
+        result=max(result,d);
+        cout<<setprecision(9)<<result<<"\n";
         return 0;
 
 }//main

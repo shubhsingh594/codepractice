@@ -59,9 +59,55 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+vector<pair<double,pair<double,double> > >store;
+int mark[1000000];
+double dist(int x1,int y1,int x2,int y2)
+{
+        return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+}
 int main()
 {
-        cout<<"template\n";
+        int n;
+        cin>>n; int i,j;
+        double x,y,r;
+        for(i=0; i<n; i++)
+        {
+                cin>>x>>y>>r;
+                store.pb(mp(r,mp(x,y)));
+        }
+        sort(store.begin(),store.end());
+        for(i=n-1; i>=0; i--)
+        {
+                for(j=i+1; j<n; j++)
+                {
+                        if (dist(store[i].ss.ff,store[i].ss.ss,store[j].ss.ff,store[j].ss.ss)<=store[j].ff)
+                        {
+                                cout<<store[i].ss.ff<<" "<<store[i].ss.ss<<" "<<store[j].ss.ff<<" "<<store[j].ss.ss<<"\n";
+                                mark[i]=mark[j]+1;
+                                break;
+                        }
+                }
+        }
+        double sum1=0.0; double sum2=0.0;
+        int flag1=0; int flag2=0;
+        for(i=0; i<n; i++)
+        {
+                cout<<mark[i]<<" ";
+        }
+        cout<<"\n";
+        for(i=0; i<n; i++)
+        {
+                if (mark[i]%4==0 || mark[i]%4==1)
+                {
+                        sum1+=PI * store[i].ff*store[i].ff;
+                }
+                else
+                {
+                        sum1-=PI * store[i].ff*store[i].ff;
+                }
+        }
+        cout<<sum1<<"\n";
+
         return 0;
 
 }//main

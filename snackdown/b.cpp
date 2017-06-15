@@ -59,9 +59,45 @@ const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
+int arr[200000];
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t; int n;
+        int flag=0; int i;
+        for(t=0; t<test; t++)
+        {
+                flag=0;
+                cin>>n;
+                for(i=0; i<n; i++)
+                {
+                        cin>>arr[i];
+                }
+                if (n%2==0)
+                {
+                        flag=1;
+                }
+                if (arr[0]!=arr[n-1] || arr[0]!=1)
+                {
+                        flag=1;
+                }
+                for(i=0; i<n/2; i++)
+                {
+                        if (arr[i]!=arr[n-1-i])
+                                flag=1;
+                }
+                for(i=0; i<n/2; i++)
+                {
+                        if (arr[i+1] !=(arr[i]+1))
+                        {
+                                flag=1;
+                        }
+                }
+                if (flag==1)
+                        cout<<"no\n";
+                else
+                        cout<<"yes\n";
+
+        }
         return 0;
 
 }//main

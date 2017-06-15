@@ -61,7 +61,34 @@ const double eps = 1e-9;
 
 int main()
 {
-        cout<<"template\n";
+        int test; cin>>test; int t; int n; string str; int i;
+        for(t=0; t<test; t++)
+        {
+                cin>>n;
+                cin>>str;
+                int flag=0;
+                for(i=0; i<str.size(); i++)
+                {
+                        if (str[i]=='.')
+                                continue;
+                        else if (str[i]=='H')
+                                flag++;
+                        else
+                                flag--;
+                        if (flag!=0 && flag!=1)
+                        {
+                                cout<<"Invalid\n";
+                                break;
+                        }
+                }
+                if (flag==0)
+                {
+                        cout<<"Valid\n";
+                }
+                else if (flag==1)
+                        cout<<"Invalid\n";
+
+        }
         return 0;
 
 }//main

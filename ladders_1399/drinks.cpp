@@ -61,7 +61,15 @@ const double eps = 1e-9;
 
 int main()
 {
-        cout<<"template\n";
+        int i; int n;
+        cin>>n; int sum=0; int temp;
+        for(i=0; i<n; i++)
+        {
+                cin>>temp;
+                sum+=temp;
+        }
+        double result=(sum*1.0)/(n*100.0);
+        cout<<result*100.00<<"\n";
         return 0;
 
 }//main

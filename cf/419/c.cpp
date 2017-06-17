@@ -76,16 +76,20 @@ int main()
       cin>>result[i][j];
     }
   }
-  for(i=1;i<=n;i++)
-  {
-    row[i]=result[i][1];
-    for(j=1;j<=m;j++)
-    {
-      row[i]=min(row[i],result[i][j]);
-    }
-  }
 
   int t;
+
+  if (n<m)
+  {
+    for(i=1;i<=n;i++)
+    {
+      row[i]=result[i][1];
+      for(j=1;j<=m;j++)
+      {
+        row[i]=min(row[i],result[i][j]);
+      }
+    }
+
   for(i=1;i<=n;i++)
   {
     for(j=1;j<=m;j++)
@@ -121,6 +125,55 @@ int main()
       c.pb(i);
     }
   }
+}
+else
+{
+
+  for(i=1;i<=m;i++)
+  {
+    col[i]=result[1][i];
+    for(j=1;j<=n;j++)
+    {
+      col[i]=min(col[i],result[j][i]);
+    }
+  }
+
+  for(i=1;i<=m;i++)
+  {
+    for(j=1;j<=n;j++)
+    {
+      result[j][i]=result[j][i]-col[i];
+    }
+    if (col[i]!=0)
+    {
+      for(t=0;t<col[i];t++)
+      c.pb(i);
+    }
+  }
+  for(i=1;i<=n;i++)
+  {
+    row[i]=result[i][1];
+    for(j=1;j<=m;j++)
+    {
+      row[i]=min(row[i],result[i][j]);
+    }
+  }
+
+
+  for(i=1;i<=n;i++)
+  {
+    for(j=1;j<=m;j++)
+    {
+      result[i][j]=result[i][j]-row[i];
+    }
+    if (row[i]!=0)
+    {
+      for(t=0;t<row[i];t++)
+      r.pb(i);
+    }
+  }
+
+}
 
 int flag=0;
 
@@ -148,6 +201,7 @@ int flag=0;
       cout<<"col "<<c[i]<<"\n";
     }
   }
+
 
         return 0;
 
